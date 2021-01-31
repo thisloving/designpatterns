@@ -3,6 +3,10 @@
 #include <iostream>
 
 struct Person {
+	Person():id(0){
+		name = "";
+	}
+
 	int id;
 	std::string name;
 };
@@ -15,7 +19,7 @@ using OptionFunc = std::function<void(Person&)>;
 
 template <typename ...OptionFunc>
 Person CreatePerson(OptionFunc&& ...opts) {
-	Person person = Person{0, ""};
+	Person person = Person();
 
 	(std::forward<OptionFunc>(opts)(person), ...);
 	return std::move(person);
