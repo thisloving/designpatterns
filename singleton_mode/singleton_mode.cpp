@@ -11,7 +11,7 @@ private:
 	Singleton(){}	
 	~Singleton() {}
 	Singleton(const Singleton&);
-	Singleton operator=(const Singleton&);
+	Singleton& operator=(const Singleton&);
 };
 
 int main()
